@@ -1,6 +1,7 @@
 import { Check, ChevronDown, LogOut, Server } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { appHref } from '../../app/navigation'
 import { useToast } from '../../app/toast'
 import { cx } from '../../components/cx'
 import { useApp } from '../../data'
@@ -52,7 +53,7 @@ export function AppHeader() {
 
   return (
     <header className={styles.root}>
-      <a href="/dashboard" className={styles.logo}>
+      <a href={appHref('/dashboard')} className={styles.logo}>
         <Server size={18} className={styles.logoIcon} aria-hidden />
         <span className="ds-heading-lg">CryptoVPS</span>
       </a>
@@ -62,7 +63,7 @@ export function AppHeader() {
           return (
             <a
               key={item.label}
-              href={item.href}
+              href={appHref(item.href)}
               aria-current={active ? 'page' : undefined}
               className={cx(styles.navItem, active ? styles.active : styles.inactive, active ? 'ds-body-sm-medium' : 'ds-body-sm')}
             >

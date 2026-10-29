@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { LinkInterceptor, ScrollManager } from './app/navigation'
+import { LinkInterceptor, ROUTER_BASENAME, ScrollManager } from './app/navigation'
 import { ToastProvider } from './app/toast'
 import { AppDataProvider } from './data'
 import { Showcase } from './Showcase'
@@ -12,7 +12,7 @@ import { screens } from './screens/registry'
  */
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={ROUTER_BASENAME}>
       <AppDataProvider>
         <ToastProvider>
           <LinkInterceptor />

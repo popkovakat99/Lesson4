@@ -50,7 +50,7 @@ src/
 - `src/screens/` — экраны, собранные из базы; общие блоки — `src/screens/shared/`.
 - `src/data/` — **мок-слой** (без бэкенда): состояние + действия через `useApp()`, сохраняется в `localStorage`. Подробности и способы проверки краевых случаев — `src/data/data.md`.
 - `src/app/` — уведомления (Toast), перехват внутренних ссылок для роутера, прокрутка.
-- Деплой — Vercel, `vercel.json` (SPA-fallback: все пути → `index.html`).
+- Деплой — **GitHub Pages**: https://popkovakat99.github.io/Lesson4/ . Каждый пуш в `main` пересобирает сайт (`.github/workflows/pages.yml`, ~1–2 мин). Сборка идёт с `BASE_PATH=/Lesson4/`; SPA-fallback — копия `index.html` в `404.html`.
 
 ## Токены
 

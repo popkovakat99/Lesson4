@@ -1,4 +1,5 @@
 import { Server } from 'lucide-react'
+import { appHref } from '../../../app/navigation'
 import { cx } from '../../../components/cx'
 import styles from '../Landing.module.css'
 import { LangSwitch } from './LandingHeader'
@@ -35,7 +36,7 @@ export function LandingFooter() {
             <div className={cx(styles.footerLinks, 'ds-body-sm')}>
               {links.map(([label, href]) =>
                 href ? (
-                  <a key={label} href={href} className={styles.navLink}>
+                  <a key={label} href={href.startsWith('/') ? appHref(href) : href} className={styles.navLink}>
                     {label}
                   </a>
                 ) : (

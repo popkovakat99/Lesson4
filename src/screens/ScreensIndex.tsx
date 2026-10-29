@@ -46,9 +46,12 @@ export function ScreensIndex() {
 
       <footer className={styles.footer}>
         <span className={cx(styles.muted, 'ds-body-sm')}>Дизайн-система:</span>
-        <a className={cx(styles.dsLink, 'ds-body-sm-medium')} href={STORYBOOK_URL} target="_blank" rel="noreferrer">
-          <BookOpen size={16} aria-hidden /> Storybook (npm run storybook)
-        </a>
+        {/* Storybook поднимается только локально — на опубликованном сайте ссылку не показываем */}
+        {import.meta.env.DEV && (
+          <a className={cx(styles.dsLink, 'ds-body-sm-medium')} href={STORYBOOK_URL} target="_blank" rel="noreferrer">
+            <BookOpen size={16} aria-hidden /> Storybook (npm run storybook)
+          </a>
+        )}
         <Link className={cx(styles.dsLink, 'ds-body-sm-medium')} to="/showcase">
           <LayoutGrid size={16} aria-hidden /> Showcase
         </Link>

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { ChevronRight, Clock, Copy, Cpu, HardDrive, MapPin, Server as ServerIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { copyText } from '../../../app/clipboard'
+import { appHref } from '../../../app/navigation'
 import { useToast } from '../../../app/toast'
 import { Dropdown } from '../../../components'
 import { cx } from '../../../components/cx'
@@ -22,7 +23,8 @@ export function ServerCard({ server }: { server: Server }) {
   const navigate = useNavigate()
   const toast = useToast()
   const os = osById(server.os)
-  const href = `/servers/${server.id}`
+  const path = `/servers/${server.id}`
+  const href = appHref(path)
 
   const copyIp = async () => {
     const ok = await copyText(server.ip)
@@ -42,10 +44,10 @@ export function ServerCard({ server }: { server: Server }) {
         <Dropdown
           aria-label={`Действия с ${server.name}`}
           items={[
-            { label: 'Открыть', onSelect: () => navigate(href) },
-            { label: 'Перезагрузить', onSelect: () => navigate(`${href}?action=reboot`) },
-            { label: 'Переустановить ОС', onSelect: () => navigate(`${href}?action=reinstall`) },
-            { label: 'Удалить', destructive: true, onSelect: () => navigate(`${href}?action=delete`) },
+            { label: 'Открыть', onSelect: () => navigate(path) },
+            { label: 'Перезагрузить', onSelect: () => navigate(`${path}?action=reboot`) },
+            { label: 'Переустановить ОС', onSelect: () => navigate(`${path}?action=reinstall`) },
+            { label: 'Удалить', destructive: true, onSelect: () => navigate(`${path}?action=delete`) },
           ]}
         />
       </div>

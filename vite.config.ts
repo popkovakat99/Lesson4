@@ -11,6 +11,8 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  // GitHub Pages отдаёт сайт из подпапки репозитория (/Lesson4/) — путь задаётся при сборке в CI. Локально — корень.
+  base: process.env.BASE_PATH ?? '/',
   plugins: [react()],
   test: {
     projects: [{

@@ -3,6 +3,15 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
+/** Префикс публикации: '/' локально, '/Lesson4/' на GitHub Pages (из vite `base`) */
+const BASE = import.meta.env.BASE_URL
+
+/** basename для BrowserRouter: '/Lesson4' или '' */
+export const ROUTER_BASENAME = BASE.replace(/\/$/, '')
+
+/** Адрес внутреннего экрана с учётом префикса публикации — для обычных <a href> (открытие в новой вкладке тоже работает) */
+export const appHref = (path: string) => ROUTER_BASENAME + path
+
 /** Перехватывает клики по внутренним ссылкам и якорям. */
 export function LinkInterceptor() {
   const navigate = useNavigate()
@@ -27,10 +36,11 @@ export function LinkInterceptor() {
         history.replaceState(null, '', href)
         return
       }
-      // Внутренний путь — переход роутера
+      // Внутренний путь — переход роутера (префикс публикации снимаем: роутер добавит его сам)
       if (href.startsWith('/') && !href.startsWith('//')) {
         e.preventDefault()
-        navigate(href)
+        const path = ROUTER_BASENAME && href.startsWith(ROUTER_BASENAME + '/') ? href.slice(ROUTER_BASENAME.length) : href
+        navigate(path)
       }
     }
     document.addEventListener('click', onClick)

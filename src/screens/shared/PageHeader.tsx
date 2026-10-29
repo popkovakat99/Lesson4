@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { appHref } from '../../app/navigation'
 import { Breadcrumb } from '../../components'
 import styles from './PageHeader.module.css'
 
@@ -17,7 +18,7 @@ export function PageHeader({ breadcrumb, title, meta, actions }: PageHeaderProps
   return (
     <div className={styles.root}>
       <div className={styles.left}>
-        <Breadcrumb items={breadcrumb.map((b) => (typeof b === 'string' ? { label: b } : b))} />
+        <Breadcrumb items={breadcrumb.map((b) => (typeof b === 'string' ? { label: b } : { label: b.label, href: appHref(b.href) }))} />
         <div className={styles.title}>{title}</div>
         {meta && <div className={styles.meta}>{meta}</div>}
       </div>
