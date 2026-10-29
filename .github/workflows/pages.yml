@@ -30,6 +30,8 @@ jobs:
         env:
           # сайт живёт в подпапке репозитория
           BASE_PATH: /${{ github.event.repository.name }}/
+          # адрес сбора юзер-тестов (ngrok-туннель к сборщику на VPS); не секрет — его видно в коде страницы
+          UT_ENDPOINT: https://hungry-routing-taste.ngrok-free.dev/collect
       # SPA-fallback: GitHub Pages на неизвестный путь отдаёт 404.html — кладём туда то же приложение
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3

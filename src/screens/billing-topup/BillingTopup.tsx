@@ -1,6 +1,6 @@
 import { CircleCheck, Clock, Copy, Info, Layers, QrCode, RotateCcw, ShieldCheck } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { copyText } from '../../app/clipboard'
 import { useToast } from '../../app/toast'
 import { Badge, Button, Input, Select, StepItem } from '../../components'
@@ -27,6 +27,8 @@ export function BillingTopup() {
   const navigate = useNavigate()
   const toast = useToast()
   const [params] = useSearchParams()
+  // Успех пополнения — отдельный адрес /billing/topup/done (цель сценария в дашборде юзер-тестов)
+  const onDonePath = useLocation().pathname.endsWith('/done')
   // ?ttl=10 — короткий таймер для проверки истечения курса
   const ttl = Number(params.get('ttl')) > 0 ? Number(params.get('ttl')) : RATE_LOCK_SECONDS
 
@@ -54,6 +56,11 @@ export function BillingTopup() {
   useEffect(() => {
     if (phase === 'awaiting' && left === 0) setPhase('expired')
   }, [left, phase])
+
+  // Прямой заход на /done без оплаты (или после перезагрузки) — возвращаем к оплате
+  useEffect(() => {
+    if (onDonePath && phase !== 'done') navigate('/billing/topup', { replace: true })
+  }, [onDonePath, phase, navigate])
 
   const newRequest = (n: NetworkId = network, a: number = amount) => {
     setNetwork(n)
@@ -87,6 +94,7 @@ export function BillingTopup() {
     setPhase('confirming')
     await actions.topup(network, amount)
     setPhase('done')
+    navigate('/billing/topup/done')
     toast({ variant: 'success', title: `Зачислено ${usdt(amount)}`, description: `Новый баланс: ${usdt(Math.round((data.balance + amount) * 100) / 100)}` })
   }
 
@@ -180,8 +188,16 @@ export function BillingTopup() {
               title={`${usdt(amount)} зачислено на баланс`}
               action={
                 <>
-                  <Button onClick={() => navigate('/dashboard')}>На дашборд</Button>
-                  <Button type="secondary" onClick={() => newRequest()}>Пополнить ещё</Button>
+                  <Button data-track="topup-to-dashboard" onClick={() => navigate('/dashboard')}>На дашборд</Button>
+                  <Button
+                    type="secondary"
+                    onClick={() => {
+                      newRequest()
+                      navigate('/billing/topup')
+                    }}
+                  >
+                    Пополнить ещё
+                  </Button>
                 </>
               }
             >
@@ -237,7 +253,7 @@ export function BillingTopup() {
 
                 {(phase === 'awaiting' || phase === 'confirming') && (
                   <div className={styles.payActions}>
-                    <Button type="primary" state={phase === 'confirming' ? 'loading' : 'default'} onClick={confirmPaid}>
+                    <Button type="primary" data-track="topup-paid" state={phase === 'confirming' ? 'loading' : 'default'} onClick={confirmPaid}>
                       Я оплатил
                     </Button>
                     <span className={cx(styles.muted, 'ds-body-xs')}>

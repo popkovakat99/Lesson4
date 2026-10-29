@@ -58,6 +58,8 @@ export const screens: ScreenEntry[] = [
     name: 'Пополнение баланса',
     description: 'Адрес и QR для оплаты, сумма и курс, шаги «Как это работает», FAQ',
     route: '/billing/topup',
+    // /billing/topup/done — успешное зачисление (тот же экран, отдельный адрес для воронки юзер-тестов)
+    path: '/billing/topup/*',
     component: BillingTopup,
     group: 'Кабинет',
     figma: '93:262',

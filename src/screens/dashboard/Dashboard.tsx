@@ -122,10 +122,10 @@ export function Dashboard() {
         </section>
 
         <section className={styles.actions}>
-          <Button type="primary" state={canCreate ? 'default' : 'disabled'} onClick={() => navigate('/servers/create')} title={canCreate ? undefined : 'Недостаточно средств на балансе'}>
+          <Button type="primary" data-track="create-server" state={canCreate ? 'default' : 'disabled'} onClick={() => navigate('/servers/create')} title={canCreate ? undefined : 'Недостаточно средств на балансе'}>
             <Plus size={16} aria-hidden /> Создать сервер
           </Button>
-          <Button type="secondary" onClick={() => navigate('/billing/topup')}>
+          <Button type="secondary" data-track="topup" onClick={() => navigate('/billing/topup')}>
             <ArrowUpRight size={16} aria-hidden /> Пополнить баланс
           </Button>
           <Button type="secondary" state={rebooting ? 'loading' : running === 0 ? 'disabled' : 'default'} onClick={rebootAll}>
@@ -158,7 +158,7 @@ export function Dashboard() {
               title="У вас пока нет серверов"
               action={
                 canCreate ? (
-                  <Button onClick={() => navigate('/servers/create')}>
+                  <Button data-track="create-server" onClick={() => navigate('/servers/create')}>
                     <Plus size={16} aria-hidden /> Создать первый сервер
                   </Button>
                 ) : (

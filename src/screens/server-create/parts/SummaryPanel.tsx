@@ -71,6 +71,7 @@ export function SummaryPanel({ items, price, forecastNow, forecastAfter, shortfa
 
       <Button
         type="primary"
+        data-track="create-server-submit"
         className={styles.fullWidth}
         state={status === 'loading' ? 'loading' : shortfall > 0 ? 'disabled' : 'default'}
         onClick={onSubmit}
