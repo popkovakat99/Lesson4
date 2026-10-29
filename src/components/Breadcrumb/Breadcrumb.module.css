@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.item {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.item:hover {
+  color: var(--text-default);
+}
+
+.current {
+  color: var(--text-default);
+}
+
+.separator {
+  color: var(--text-disabled);
+}

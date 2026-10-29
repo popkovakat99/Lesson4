@@ -1,0 +1,132 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 280px;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard);
+}
+
+.trigger:hover:not(:disabled),
+.root[data-state='hover'] .trigger {
+  background: var(--surface-subtle);
+}
+
+.trigger:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--border-focus-ring);
+}
+
+.value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-default);
+}
+
+.placeholder {
+  color: var(--text-muted);
+}
+
+.caret {
+  flex: none;
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--text-muted);
+}
+
+.panel {
+  position: absolute;
+  top: calc(40px + var(--space-1));
+  left: 0;
+  right: 0;
+  z-index: 10;
+  /* Длинный список прокручивается внутри панели: максимум ~7 пунктов */
+  max-height: calc(var(--space-16) * 4);
+  overflow-y: auto;
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+  animation: panel-in var(--duration-fast) var(--easing-enter);
+}
+
+/* Появление панели: сдвиг сверху на space-1 и проявление */
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--space-1)));
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 32px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing-standard);
+}
+
+.option:hover,
+.optionSelected {
+  background: var(--surface-subtle);
+}
+
+.optionLabel {
+  flex: 1;
+  color: var(--text-default);
+}
+
+.check {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--text-action);
+}
+
+/* State=error */
+.root[data-state='error'] .trigger {
+  box-shadow: inset 0 0 0 1px var(--border-error);
+}
+.root[data-state='error'] .value {
+  color: var(--text-error);
+}
+.error {
+  color: var(--text-error);
+}
+
+/* State=disabled */
+.root[data-state='disabled'] {
+  opacity: 0.5;
+}
+.root[data-state='disabled'] .trigger {
+  cursor: not-allowed;
+}
+.root[data-state='disabled'] .value {
+  color: var(--text-disabled);
+}

@@ -1,0 +1,28 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  /* 6px и 10px — off-scale значения из Figma, токена под них нет */
+  gap: 6px;
+  padding: var(--space-1) 10px var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+}
+
+.dot {
+  flex: none;
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.label {
+  color: var(--text-default);
+  white-space: nowrap;
+}
+
+/* Variant */
+.success { background: var(--bg-success); }
+.warning { background: var(--bg-warning); }
+.error   { background: var(--bg-error); }
+.neutral { background: var(--text-muted); }

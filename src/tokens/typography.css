@@ -1,0 +1,14 @@
+/* TextStyles из ds/components.md (DS/Heading/*, DS/Body/*, DS/Label/*).
+   Цвет в классы НЕ зашит — как и в Figma, цвет задаётся отдельной семантикой. */
+.ds-heading-4xl { font-family: var(--font-sans); font-size: var(--size-4xl); font-weight: var(--weight-semibold); line-height: var(--line-height-tight); }
+.ds-heading-3xl { font-family: var(--font-sans); font-size: var(--size-3xl); font-weight: var(--weight-semibold); line-height: var(--line-height-tight); }
+.ds-heading-2xl { font-family: var(--font-sans); font-size: var(--size-2xl); font-weight: var(--weight-medium); line-height: var(--line-height-tight); }
+.ds-heading-xl  { font-family: var(--font-sans); font-size: var(--size-xl);  font-weight: var(--weight-medium); line-height: var(--line-height-base); }
+.ds-heading-lg  { font-family: var(--font-sans); font-size: var(--size-lg);  font-weight: var(--weight-medium); line-height: var(--line-height-base); }
+
+.ds-body-base      { font-family: var(--font-sans); font-size: var(--size-base); font-weight: var(--weight-regular); line-height: var(--line-height-base); }
+.ds-body-sm        { font-family: var(--font-sans); font-size: var(--size-sm);   font-weight: var(--weight-regular); line-height: var(--line-height-base); }
+.ds-body-sm-medium { font-family: var(--font-sans); font-size: var(--size-sm);   font-weight: var(--weight-medium);  line-height: var(--line-height-base); }
+.ds-body-xs        { font-family: var(--font-sans); font-size: var(--size-xs);   font-weight: var(--weight-regular); line-height: var(--line-height-base); }
+
+.ds-label-xs { font-family: var(--font-sans); font-size: var(--size-xs); font-weight: var(--weight-medium); line-height: var(--line-height-base); letter-spacing: var(--tracking-wide); }

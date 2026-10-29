@@ -1,0 +1,19 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  /* 6px — off-scale значение из Figma, токена под него нет */
+  gap: 6px;
+  color: var(--text-action);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--easing-standard);
+}
+
+.root:hover {
+  text-decoration: underline;
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--border-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

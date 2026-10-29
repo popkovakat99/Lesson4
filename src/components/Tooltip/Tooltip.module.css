@@ -1,0 +1,33 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--text-strong);
+  color: var(--text-on-action);
+  white-space: nowrap;
+}
+
+.arrow {
+  display: block;
+  width: 10px;
+  height: 5px;
+  background: var(--text-strong);
+}
+
+/* Placement=top — подсказка над элементом, стрелка снизу смотрит вниз */
+.top .arrow {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* Placement=bottom — подсказка под элементом, стрелка сверху смотрит вверх */
+.bottom {
+  flex-direction: column-reverse;
+}
+.bottom .arrow {
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}

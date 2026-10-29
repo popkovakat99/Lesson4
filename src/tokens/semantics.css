@@ -1,0 +1,40 @@
+/* Слой 2 — Semantic. Зеркало коллекции `Semantic` в Figma (ds/foundation.md).
+   Каждое значение — ссылка на примитив через var(), прибитых значений нет.
+   Компоненты и экраны используют только этот слой. */
+:root {
+  /* Поверхности */
+  --surface-default: var(--gray-00);
+  --surface-subtle: var(--gray-50);
+  --surface-muted: var(--gray-100);
+  --surface-action-primary: var(--accent-500);
+  --surface-action-primary-hover: var(--accent-700);
+  --surface-action-secondary-hover: var(--gray-100);
+  --surface-action-ghost-hover: var(--gray-50);
+  --surface-success-subtle: var(--success-500);
+  --surface-warning-subtle: var(--warning-500);
+  --surface-error-subtle: var(--error-500-5);
+
+  /* Текст */
+  --text-default: var(--gray-900);
+  --text-strong: var(--gray-950);
+  --text-muted: var(--gray-500);
+  --text-disabled: var(--gray-300);
+  --text-on-action: var(--gray-00);
+  --text-action: var(--accent-500);
+  --text-success: var(--success-500);
+  --text-warning: var(--warning-500);
+  --text-error: var(--error-500);
+
+  /* Обводки */
+  --border-default: var(--gray-200);
+  --border-strong: var(--gray-300);
+  --border-action: var(--accent-500);
+  --border-focus-ring: var(--accent-500);
+  --border-error: var(--error-500);
+
+  /* Состояния (заливки чипов и индикаторов) */
+  --bg-success: var(--success-500);
+  --bg-warning: var(--warning-500);
+  --bg-error: var(--error-500);
+  --bg-info: var(--info-500);
+}

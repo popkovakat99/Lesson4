@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  height: 56px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+}
+
+.logo {
+  color: var(--text-default);
+}
+
+.items {
+  display: flex;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.active {
+  color: var(--text-default);
+}
+
+.inactive {
+  color: var(--text-muted);
+}
+
+.inactive:hover {
+  color: var(--text-default);
+}

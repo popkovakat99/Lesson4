@@ -1,0 +1,31 @@
+@import './tokens/primitives.css';
+@import './tokens/semantics.css';
+@import './tokens/typography.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--size-sm);
+  line-height: var(--line-height-base);
+  color: var(--text-default);
+  background: var(--surface-default);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
