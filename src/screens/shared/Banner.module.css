@@ -1,0 +1,68 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  animation: banner-in var(--duration-base) var(--easing-enter);
+}
+
+@keyframes banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--space-1)));
+  }
+}
+
+.icon {
+  flex: none;
+  display: inline-flex;
+}
+
+.text {
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  color: var(--text-default);
+}
+
+.body {
+  color: var(--text-muted);
+}
+
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Тоны — на семантике: error-subtle есть в ДС, для остальных — мягкий tint функциональных цветов */
+.error {
+  background: var(--surface-error-subtle);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--border-error) 30%, transparent);
+  color: var(--text-error);
+}
+
+.warning {
+  background: color-mix(in srgb, var(--bg-warning) 8%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bg-warning) 30%, transparent);
+  color: var(--text-warning);
+}
+
+.info {
+  background: color-mix(in srgb, var(--bg-info) 6%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bg-info) 25%, transparent);
+  color: var(--text-action);
+}
+
+.success {
+  background: color-mix(in srgb, var(--bg-success) 6%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bg-success) 25%, transparent);
+  color: var(--text-success);
+}

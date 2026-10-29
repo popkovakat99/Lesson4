@@ -1,0 +1,95 @@
+.muted { color: var(--text-muted); }
+.default { color: var(--text-default); }
+.strong { color: var(--text-strong); }
+.success { color: var(--text-success); }
+.warning { color: var(--text-warning); }
+.action { color: var(--text-action); }
+
+/* ConfigItem */
+.cfg {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cfgHead {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+}
+
+.icon {
+  display: inline-flex;
+}
+
+/* LoadMeter */
+.load {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.loadHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--surface-subtle);
+}
+
+.barFill {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  background: var(--bg-success);
+}
+
+/* MetricChart */
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm);
+}
+
+.chartHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.chartValue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.chartSvg {
+  width: 100%;
+  height: 140px;
+}
+
+/* В макете заливка — accent-500 c 12% прозрачности, линия — accent-500 */
+.area {
+  fill: color-mix(in srgb, var(--surface-action-primary) 12%, transparent);
+}
+
+.line {
+  fill: none;
+  stroke: var(--surface-action-primary);
+  stroke-width: 2;
+}
+
+.axis {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+}

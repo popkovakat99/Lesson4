@@ -1,0 +1,175 @@
+.muted { color: var(--text-muted); }
+.default { color: var(--text-default); }
+.strong { color: var(--text-strong); }
+.errorText { color: var(--text-error); }
+
+.ellipsis {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* RegionChip и PlanCard — кнопки-радио: сбрасываем вид кнопки, добавляем ховер и фокус */
+.regChip,
+.planCard {
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard);
+}
+
+.regChip:hover:not(.selected),
+.planCard:hover:not(.selected) {
+  box-shadow: inset 0 0 0 1px var(--border-strong), var(--shadow-sm);
+}
+
+.regChip:focus-visible,
+.planCard:focus-visible {
+  outline: 2px solid var(--border-focus-ring);
+  outline-offset: 2px;
+}
+
+/* FormSection */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.secHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* RegionChip */
+.regChip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 180px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+}
+
+.txtCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Выбранная плашка / карточка — border-action 2px + surface-subtle */
+.selected {
+  background: var(--surface-subtle);
+  box-shadow: inset 0 0 0 2px var(--border-action), var(--shadow-sm);
+}
+
+/* PlanCard */
+.planCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm);
+}
+
+.planHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.popular {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface-action-primary);
+  color: var(--text-on-action);
+}
+
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.spec,
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: none;
+  background: var(--border-default);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+/* SummaryPanel */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.fcRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-default);
+}
+
+.dot {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.dotSuccess { background: var(--bg-success); }
+.dotWarning { background: var(--bg-warning); }
+.dotError { background: var(--bg-error); }
+
+/* Кнопка на всю ширину сводки; длинная подпись переносится (в базе Button — nowrap) */
+.summary .fullWidth {
+  width: 100%;
+  white-space: normal;
+  text-align: center;
+}

@@ -34,6 +34,24 @@ src/
 .storybook/          конфиг Storybook (токены и шрифт Inter подключены в preview)
 ```
 
+## Прототип: экраны и мок-данные
+
+`npm run dev` → `/` — индекс со всеми экранами (плитки из `src/screens/registry.ts`).
+
+| Экран | Роут |
+|-------|------|
+| Dashboard | `/dashboard` |
+| Создание сервера | `/servers/create` (`?plan=starter\|standard\|performance`) |
+| Страница сервера | `/servers/:id` (`?action=reboot\|reinstall\|delete` открывает модалку) |
+| Пополнение баланса | `/billing/topup` (`?ttl=10` — короткий таймер курса для теста) |
+| Модалки | `/modals/delete`, `/modals/reinstall`, `/modals/reboot` |
+| Лендинг | `/landing` |
+
+- `src/screens/` — экраны, собранные из базы; общие блоки — `src/screens/shared/`.
+- `src/data/` — **мок-слой** (без бэкенда): состояние + действия через `useApp()`, сохраняется в `localStorage`. Подробности и способы проверки краевых случаев — `src/data/data.md`.
+- `src/app/` — уведомления (Toast), перехват внутренних ссылок для роутера, прокрутка.
+- Деплой — Vercel, `vercel.json` (SPA-fallback: все пути → `index.html`).
+
 ## Токены
 
 Два слоя, как в Figma Variables:

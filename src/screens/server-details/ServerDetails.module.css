@@ -1,0 +1,181 @@
+.page {
+  min-height: 100vh;
+  background: var(--surface-default);
+  color: var(--text-default);
+}
+
+.muted { color: var(--text-muted); }
+.default { color: var(--text-default); }
+
+.action {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-action);
+  cursor: pointer;
+}
+
+.action:hover {
+  text-decoration: underline;
+}
+
+.iconBtn {
+  display: inline-flex;
+  padding: 2px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.iconBtn:hover {
+  color: var(--text-action);
+}
+
+.h1,
+.h2 {
+  margin: 0;
+}
+
+.h1 { color: var(--text-strong); }
+.h2 { color: var(--text-default); }
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sep {
+  color: var(--text-disabled);
+}
+
+/* TabsRow: инстансы Tab, gap 24, нижняя граница */
+.tabsRow {
+  display: flex;
+  gap: var(--space-6);
+  padding: 0 var(--space-8);
+  overflow-x: auto;
+  background: var(--surface-default);
+  box-shadow: inset 0 -1px 0 var(--border-default);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-8) var(--space-8);
+}
+
+.topRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.card {
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm);
+}
+
+/* ConfigBlock: горизонтальный автолейаут с wrap, gap 64 */
+.configBlock {
+  composes: card;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-16);
+  row-gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+.statusPanel {
+  composes: card;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+/* Четыре полосы FILL, gap 48 */
+.meters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  column-gap: var(--space-12);
+  row-gap: var(--space-4);
+}
+
+.chartsHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.periods {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.period {
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard);
+}
+
+.period:hover {
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+
+.periodActive {
+  background: var(--surface-subtle);
+  box-shadow: inset 0 0 0 1px var(--border-action);
+  color: var(--text-action);
+}
+
+/* ChartsGrid: 2×2, на узком экране — в колонку */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--space-4);
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Вкладка «Управление» */
+.manage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.manageCard {
+  composes: card;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+}
+
+.manageText {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

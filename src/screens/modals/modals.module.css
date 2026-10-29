@@ -1,0 +1,112 @@
+/* Общие стили содержимого трёх экранов-модалок */
+.muted { color: var(--text-muted); }
+.default { color: var(--text-default); }
+.error { color: var(--text-error); }
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Delete: информационный блок */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--surface-subtle);
+}
+
+.infoRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Reinstall: 4 OptionCard в ряд, wrap */
+.osRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--space-3);
+}
+
+.osRow > .option {
+  width: auto;
+}
+
+.warn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--surface-error-subtle);
+  color: var(--text-error);
+}
+
+/* Reboot: варианты перезагрузки */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.opt {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard);
+}
+
+.opt:hover:not(:disabled) {
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+
+.opt:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.opt:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--border-focus-ring);
+}
+
+.optSelected,
+.optSelected:hover:not(:disabled) {
+  background: var(--surface-subtle);
+  box-shadow: inset 0 0 0 2px var(--border-action);
+}
+
+.optHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-default);
+}

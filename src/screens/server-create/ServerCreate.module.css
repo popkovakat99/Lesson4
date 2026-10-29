@@ -1,0 +1,101 @@
+.page {
+  min-height: 100vh;
+  background: var(--surface-default);
+  color: var(--text-default);
+}
+
+.h1 {
+  margin: 0;
+  color: var(--text-strong);
+}
+
+/* Body: форма FILL + сводка 416 фикс; на узком экране сводка уходит вниз */
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-8);
+  padding: var(--space-1) var(--space-8) var(--space-8);
+}
+
+.form {
+  flex: 1 1 560px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.summary {
+  flex: 0 1 416px;
+  min-width: 300px;
+  position: sticky;
+  top: var(--space-6);
+}
+
+/* OSRow: 4 OptionCard FILL + wrap */
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+/* OptionCard в базе фиксирован 228px; в макете он FILL — растягиваем в ячейке сетки */
+.optionGrid > .option {
+  width: auto;
+}
+
+.wrapRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+
+.sshRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.action {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-action);
+  cursor: pointer;
+}
+
+.action:hover,
+.inlineLink:hover {
+  text-decoration: underline;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.errorText {
+  color: var(--text-error);
+}
+
+.hint {
+  color: var(--text-muted);
+}
+
+.inlineLink {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-action);
+  font: inherit;
+  cursor: pointer;
+}

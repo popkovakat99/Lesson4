@@ -1,0 +1,20 @@
+.root {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.surface-subtle { background: var(--surface-subtle); }
+.surface-error  { background: var(--surface-error-subtle); }
+.surface-action { background: var(--surface-action-primary); }
+
+.tone-action    { color: var(--text-action); }
+.tone-success   { color: var(--text-success); }
+.tone-warning   { color: var(--text-warning); }
+.tone-error     { color: var(--text-error); }
+.tone-muted     { color: var(--text-muted); }
+.tone-default   { color: var(--text-default); }
+.tone-on-action { color: var(--text-on-action); }

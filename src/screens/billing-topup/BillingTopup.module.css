@@ -1,0 +1,264 @@
+.page {
+  min-height: 100vh;
+  background: var(--surface-default);
+  color: var(--text-default);
+}
+
+.muted { color: var(--text-muted); }
+.default { color: var(--text-default); }
+.strong { color: var(--text-strong); }
+.success { flex: none; color: var(--text-success); }
+.warning { color: var(--text-warning); }
+.errorText { color: var(--text-error); }
+
+.action {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-action);
+  cursor: pointer;
+}
+
+.action:hover {
+  text-decoration: underline;
+}
+
+/* Редактор сети и суммы (вместо NetSummary по «Изменить») */
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-subtle);
+  animation: editor-in var(--duration-base) var(--easing-enter);
+}
+
+@keyframes editor-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.editorFields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.field {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.editorActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.paymentInactive .qrBox,
+.paymentInactive .addrBox {
+  opacity: 0.5;
+}
+
+.payActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cancel {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.cancel:hover:not(:disabled) {
+  color: var(--text-default);
+  text-decoration: underline;
+}
+
+.cancel:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.h1,
+.h2 {
+  margin: 0;
+}
+
+.h1 { color: var(--text-strong); }
+.h2 { color: var(--text-default); }
+
+.col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* Body: левая колонка FILL + правая 416 фикс; на узком — правая вниз */
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-8);
+  padding: var(--space-1) var(--space-8) var(--space-8);
+}
+
+.left {
+  flex: 1 1 560px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.right {
+  flex: 0 1 416px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.netSummary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-subtle);
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm);
+}
+
+.payTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.timer {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+  color: var(--text-default);
+}
+
+.payMain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.qr {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* QR в макете — картинка; здесь плейсхолдер 240×240 */
+.qrBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 240px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  color: var(--text-disabled);
+}
+
+.details {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.addrBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.addrBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-subtle);
+}
+
+.addr {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--text-default);
+}
+
+.amtRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: none;
+  background: var(--border-default);
+}
+
+.proc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--surface-default);
+  box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm);
+}
+
+.security {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-subtle);
+}
